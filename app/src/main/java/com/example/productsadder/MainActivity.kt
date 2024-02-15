@@ -163,13 +163,15 @@ class MainActivity : AppCompatActivity() {
                 name,
                 category,
                 price.toFloat(),
+          //      price.toFloat(),
                 if (offerPercentage.isEmpty()) null else offerPercentage.toFloat(),
                 if (description.isEmpty()) null else description,
                 if (selectedColors.isEmpty()) null else selectedColors,
                 sizes,
-                images
+               // images
+                if (images.isEmpty()) null else hashMapOf("images" to images)
             )
-            firestore.collection("Products").add(product).addOnSuccessListener {
+            firestore.collection("products").add(product).addOnSuccessListener {
                 hideLoading()
             }.addOnFailureListener{
                 hideLoading()
