@@ -168,8 +168,8 @@ class MainActivity : AppCompatActivity() {
                 if (description.isEmpty()) null else description,
                 if (selectedColors.isEmpty()) null else selectedColors,
                 sizes,
-               // images
-                if (images.isEmpty()) null else hashMapOf("images" to images)
+                images
+
             )
             firestore.collection("products").add(product).addOnSuccessListener {
                 hideLoading()
